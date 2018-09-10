@@ -4,7 +4,7 @@
 手动引用laravel最新版本，而不是克隆本项目
 
 ```
-create project laravel/laravel Platform
+composer-create project laravel/laravel Platform
 ```
 
 编辑`.gitignore`,替换如下：
