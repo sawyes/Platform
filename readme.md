@@ -1,4 +1,4 @@
-#### 创建项目
+### 手动初始化项目
 
 
 手动引用laravel最新版本，而不是克隆本项目
@@ -32,13 +32,16 @@ _ide_helper_models.php
 Modules/*
 ```
 
+#### 添加基础扩展包
+
+
 编辑 composer.json, 添加如下包, 其中`nwidart/laravel-modules`是必须的
 
 - 官方文档[nwidart/laravel-modules](https://nwidart.com)
 - GitHub[Nicolas Widart](https://github.com/nwidart)
 - 官方文档[phpoffice/phpspreadsheet](https://phpspreadsheet.readthedocs.io/en/develop/)
-- github[phpoffice/phpspreadsheet](https://github.com/PHPOffice/PhpSpreadsheet)
-
+- github [phpoffice/phpspreadsheet](https://github.com/PHPOffice/PhpSpreadsheet)
+- github [barryvdh/laravel-ide-helper](https://github.com/barryvdh/laravel-ide-helper)
 
 ```
 composer require -o nwidart/laravel-modules 
@@ -61,3 +64,36 @@ composer require -o barryvdh/laravel-ide-helper --dev
         }
     },
 ```
+
+#### 自动完成
+
+添加编辑器代码`自动完成`支持
+
+```
+php artisan ide-helper:generate
+```
+
+并且修改composer.json, 以便每次更新`composer update`可以重新生成自动完成。
+```
+"scripts":{
+    "post-update-cmd": [
+        "Illuminate\\Foundation\\ComposerScripts::postUpdate",
+        "php artisan ide-helper:generate",
+        "php artisan ide-helper:meta"
+    ]
+},
+```
+
+设置生产环境不生成代码提示
+```
+
+public function register()
+{
+    if ($this->app->environment() !== 'production') {
+        $this->app->register(\Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class);
+    }
+    // ...
+}
+```
+
+> 注意：运行生成提示前应先清除编译文件`php artisan clear-compiled`.
