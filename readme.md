@@ -1,3 +1,7 @@
+## 资料
+
+[symfony 官网](https://symfony.com/doc/current/index.html#gsc.tab=0)
+
 ## 初始化
 
 当前仓库基于laravel 5.6，你可以直接克隆这个仓库，免去手动初始化的步骤。但是你应该意识到laravel版本升级迭代，我建议每一个大版本你都应该保存一个类似的仓库，以便快速初始化模板，同时明确`nwidart/laravel-modules`的版本，实践中版本升级还是会有不稳定性
