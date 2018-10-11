@@ -138,10 +138,18 @@ public function register()
 
 #### env
 
+手动初始化可以忽略本步骤
+
 如果克隆本项目,需要初始化`.env`文件
 
 ```
 cp .env.example .env
+```
+
+生成APP密钥
+
+```
+php artisan key:generate
 ```
 
 #### 添加核心模块
