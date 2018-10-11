@@ -162,9 +162,9 @@ cd Modules
 git clone git@github.com:sawyes/Core.git
 ```
 
-#### 发布模块化配置文件
+立刻严重是否添加成功 `php artisan module:list`
 
-发布模块化开发的配置文件, 如果看见`Tag: module.core.config`选项说明上一步引入`Core`模块是成功的,
+#### 发布模块化配置文件
 
 此处我们需要选择发布`"Nwidart\Modules\LaravelModulesServiceProvider"`模块
 
@@ -175,14 +175,34 @@ php artisan vendor:publish
 此时在生成`config/modules.php`配置文件, 此文件需要`.gitignore`中忽略, 以便开发各自定义自己的模块
 
 
-#### 添加自己的模块
+#### 添加新的模块
+
+此处假设, 新的模块仅用于执行shell脚本, 通过配置modules.php关闭部分无用功能
+
+```
+php artisan module:make CommandModules
+```
+
+在模块中添加命令行
+
+```
+php artisan module:make-command TestCommand CommandModules
+```
+
+必须注册模块后才能执行模块命令
 
 ```
 
+class CommandModulesServiceProvider extends ServiceProvider
+...
+
+    public function boot()
+    {
+    ...
+        $this->commands([
+            TestCommand::class,
+        ]);
 ```
-
-
-
 
 ## 技术愿景
 
