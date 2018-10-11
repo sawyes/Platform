@@ -39,12 +39,12 @@ Homestead.yaml
 npm-debug.log
 yarn-error.log
 .env
-
-composer.lock
+.phpstorm.meta.php
 _ide_helper.php
 _ide_helper_models.php
-/.idea
+composer.lock
 Modules/*
+config/modules.php
 ```
 
 #### 添加基础扩展包
@@ -130,7 +130,7 @@ public function register()
 
 到此手动初始化到此为止, 下述内容为克隆本项目的操作
 
-## 本项目意义
+## 使用
 
 无论是手动创建还是克隆本项目,不影响下述使用, 因为核心思想是模块组装, 比如用`Core`模块, 类似于扩张包开发的模式,让你的项目更灵活, 这里的灵魂思想是[nwidart/laravel-modules](https://nwidart.com).
 
@@ -161,6 +161,28 @@ mkdir Modules
 cd Modules
 git clone git@github.com:sawyes/Core.git
 ```
+
+#### 发布模块化配置文件
+
+发布模块化开发的配置文件, 如果看见`Tag: module.core.config`选项说明上一步引入`Core`模块是成功的,
+
+此处我们需要选择发布`"Nwidart\Modules\LaravelModulesServiceProvider"`模块
+
+```
+php artisan vendor:publish
+```
+
+此时在生成`config/modules.php`配置文件, 此文件需要`.gitignore`中忽略, 以便开发各自定义自己的模块
+
+
+#### 添加自己的模块
+
+```
+
+```
+
+
+
 
 ## 技术愿景
 
