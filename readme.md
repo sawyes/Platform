@@ -127,6 +127,16 @@ public function register()
 
 > 注意：运行生成提示前应先清除编译文件`php artisan clear-compiled`.
 
+## 添加核心模块
+
+这一步是必须的, 后续框架会更新此文件, 提供基本的功能
+
+```
+mkdir Modules
+cd Modules
+git clone git@github.com:sawyes/Core.git
+```
+
 ## 技术愿景
 
 给一个规范，约束团队成员。
