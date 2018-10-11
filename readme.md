@@ -68,7 +68,7 @@ composer require -o barryvdh/laravel-ide-helper --dev
 ```
 
 
-修改自动加载机制, 支持`nwidart/laravel-modules`模块化开发，所有模块代码保存在项目根目录`Modules`下, 通过`composer autoload`更新项目自动加载代码
+编辑 composer.json, 修改自动加载机制, 支持`nwidart/laravel-modules`模块化开发，所有模块代码保存在项目根目录`Modules`下, 通过`composer autoload`更新项目自动加载代码
 
 ```
 "autoload": {
@@ -78,6 +78,20 @@ composer require -o barryvdh/laravel-ide-helper --dev
             "Modules\\": "Modules/"
         }
     },
+```
+
+编辑 composer.json, 如有需要设置composer中国镜像源
+
+* https://packagist.phpcomposer.com
+* https://packagist.laravel-china.org/
+
+```
+"repositories": {
+    "packagist": {
+        "type": "composer",
+        "url": "https://packagist.phpcomposer.com"
+    }
+}
 ```
 
 #### 代码自动完成提示
