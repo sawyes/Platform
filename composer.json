@@ -1,7 +1,10 @@
 {
     "name": "laravel/laravel",
     "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "keywords": [
+        "framework",
+        "laravel"
+    ],
     "license": "MIT",
     "type": "project",
     "require": {
@@ -12,6 +15,8 @@
         "laravel/tinker": "^1.0",
         "nwidart/laravel-modules": "^3.3",
         "phpoffice/phpspreadsheet": "^1.3",
+        "h4cc/wkhtmltopdf-amd64": "0.12.x",
+        "h4cc/wkhtmltoimage-amd64": "0.12.x",
         "predis/predis": "^1.1"
     },
     "require-dev": {
@@ -39,8 +44,7 @@
     },
     "extra": {
         "laravel": {
-            "dont-discover": [
-            ]
+            "dont-discover": []
         }
     },
     "scripts": {
